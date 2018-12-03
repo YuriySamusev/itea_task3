@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . "/../src/ArrayList.php";
+require_once __DIR__ . "/../src/JsonList.php";
+require_once __DIR__ . "/../src/JamlList.php";
+require_once __DIR__ . "/../src/DataCollection.php";
+
+
+$objArr = new ArrayList(['first' => 1, 'second' => [2 , 3], 4, 'last' => 'element_5']);
+$objJsn = new JsonList(['first' => 11, 'second' => [12 , 13], 14, 'last' => 'element_15']);
+$objJml = new JamlList(['first' => 21, 'second' => [22 , 23], 24, 'last' => 'element_25']);
+
+/** todo: custom tests */
+
+$collection = new DataCollection();
+$collection->add($objArr);
+$collection->add($objJsn);
+$collection->add($objJml);
+
+echo $collection;
+
+$collection->set('newKey', 'newVal_2');
+echo $collection;
+
+$collection->clear();
+echo $collection;
+
